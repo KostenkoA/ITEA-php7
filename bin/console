@@ -17,3 +17,5 @@ $someClass = new class {
     public $firstName;
 };
 \var_dump($someClass);
+
+\var_dump(\App\Repository\ProductsRepository::DEFAULT_LIMIT);

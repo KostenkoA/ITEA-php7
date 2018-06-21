@@ -15,7 +15,7 @@ use App\Models\{
 
 class ProductsRepository
 {
-    const DEFAULT_LIMIT = 50;
+    private const DEFAULT_LIMIT = 50;
 
     private $products = [
         'PHPStrom',
@@ -28,7 +28,7 @@ class ProductsRepository
         return [];
     }
 
-    public function getProductForSale(array $filter)
+    public function getProductForSale(iterable $filter)
     {
 //        $limit = null;
 //
@@ -41,7 +41,7 @@ class ProductsRepository
         return $limit;
     }
 
-    public function count(array $filters): int
+    public function count(?array $filters): ?int
     {
         return '0';
     }
@@ -84,5 +84,20 @@ class ProductsRepository
                 return new \LogicException('Products collection is read only');
             }
         };
+    }
+
+    public function save(): void
+    {
+        $types = ['integer', 'string', 'float'];
+
+        $integer = $types[0];
+        $string = $types[1];
+        $float = $types[2];
+
+        list($int, $str, $float) = $types;
+        [$int, $str, $float] = $types;
+
+        $test = ['a' => 1, 'b' => 2, 'c' => 3];
+        ['a' => $a] = $test;
     }
 }
